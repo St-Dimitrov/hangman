@@ -16,16 +16,28 @@ print(placeholder)
 
 # TODO-3 - Ask the player to guess a letter
 
-guess = input("Guess a letter: ").lower()
-print(guess)
+game_over = False
+correct_letters = []
+
+while not game_over:
+    guess = input("Guess a letter: ").lower()
+    print(guess)
+ 
 
 # TODO-4 - Check
 
-display = ""
+    display = ""
 
-for letter in chosen_word:
-    if letter == guess:
-        display += letter
-    else:
-        display += "_"
-print(display)
+    for letter in chosen_word:
+        if letter == guess:
+            correct_letters.append(letter)
+            display += letter
+        elif letter in correct_letters:
+            display += letter
+        else:
+            display += "_"
+    print(display)
+
+    if "_" not in display:
+        print("You win.")
+        game_over = True
