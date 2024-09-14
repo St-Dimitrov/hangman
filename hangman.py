@@ -17,6 +17,7 @@ print(placeholder)
 # TODO-3 - Ask the player to guess a letter
 
 game_over = False
+lives = 5
 correct_letters = []
 
 while not game_over:
@@ -25,8 +26,14 @@ while not game_over:
  
 
 # TODO-4 - Check
-
+    print(lives)
     display = ""
+
+    if guess not in chosen_word:
+        lives -= 1
+        if lives == 0:
+            game_over = True
+            print("You Lose.")
 
     for letter in chosen_word:
         if letter == guess:
