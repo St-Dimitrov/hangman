@@ -7,7 +7,12 @@ chosen_word = random.choice(word_list)
 print(chosen_word)
 
 # TODO-2 - Generate as many blanks as letters in the word
-
+placeholder = ""
+word_lenght = len(chosen_word)
+print(word_lenght)
+for position in range(word_lenght):
+    placeholder += "_"
+print(placeholder)
 
 # TODO-3 - Ask the player to guess a letter
 
@@ -16,8 +21,11 @@ print(guess)
 
 # TODO-4 - Check
 
+display = ""
+
 for letter in chosen_word:
     if letter == guess:
-        print("Right")
+        display += letter
     else:
-        print("Wrong")
+        display += "_"
+print(display)
